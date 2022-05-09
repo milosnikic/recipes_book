@@ -1,6 +1,6 @@
 import requests
 
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMTAwOTkyLCJpYXQiOjE2NTIwODg3NjMsImp0aSI6IjUwYjE5YzM0ZGQ3NzQ3ZTA5NmFhNDdmNGZjNWRkZDUwIiwidXNlcl9pZCI6Mn0.rsCOhPbs4hlnWiL9V6Rz6nHsWvH4ohHs9b5CV0GSgnU"
+token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMTIzMjc4LCJpYXQiOjE2NTIxMjI5NzgsImp0aSI6IjJhYTI4NWFmZTI5ODQ5ZDA4MmJhYThhMDRjM2E0NDExIiwidXNlcl9pZCI6NX0.aayMu20xzc3OScOO29vdeNy9bVvQZLAl7hrFX_-vIGU"
 headers = {
     "Authorization": f"Bearer {token}"
 }

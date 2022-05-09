@@ -24,10 +24,10 @@ class RecipesListCreateAPIView(
 class RecipeRetrieveAPIView(
         IsAuthenticatedMixin,
         generics.RetrieveAPIView):
+    queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
     
-    def get_queryset(self):
-        return Recipe.objects.all()
+    
 
 class RatingCreateAPIView(
         IsAuthenticatedMixin,
