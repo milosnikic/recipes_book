@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # third party packages
+    'rest_framework',
+    
     # internal apps
     'api',
+    'recipes',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +139,7 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = 'api.User'
 
 SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ['Bearer'],
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
