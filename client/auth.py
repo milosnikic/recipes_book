@@ -81,3 +81,19 @@ def get_token():
         return login()
     (_, _, access, _) = read_credentials()
     return access
+
+
+
+def call_api(endpoint, data=None):
+    token = get_token()
+    endpoint = f"http://127.0.0.1:8000/{endpoint}"
+    if token:
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+        get_response = requests.post(endpoint, json=data, headers=headers) if data is not None else requests.get(endpoint, headers=headers)
+        if get_response.status_code != 200:
+            token = refresh()
+            get_response = requests.post(endpoint, json=data, headers=headers) if data is not None else requests.get(endpoint, headers=headers)
+        data = get_response.json()
+        return data
