@@ -1,5 +1,5 @@
 import requests
-from auth import get_auth_token
+from client.login import get_auth_token
 
 token = get_auth_token()
 headers = {
