@@ -7,6 +7,8 @@ from api.models import User
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
     text = models.CharField(max_length=500, null=True)
+    user = models.ForeignKey(User, default=3, null=False, on_delete=models.CASCADE, related_name='recipes')
+
 
     REQUIRED_FIELDS = ['name']
 
@@ -24,5 +26,5 @@ class Recipe(models.Model):
 
 class Rating(models.Model):
     rating = models.IntegerField(null=False)
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name='users')
+    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name='ratings')
     recipe = models.ForeignKey(Recipe, null=False, on_delete=models.CASCADE, related_name='ratings')

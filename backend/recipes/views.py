@@ -16,6 +16,9 @@ class RecipesListCreateAPIView(
 
     def get_queryset(self):
         return Recipe.objects.all().annotate(_average_rating=Coalesce(Avg('ratings__rating'), 0.0))
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class RecipeRetrieveAPIView(

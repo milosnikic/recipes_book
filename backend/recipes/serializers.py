@@ -6,33 +6,53 @@ from api.models import User
 from .validators import required
 
 
-class RatingCreateSerializer(serializers.ModelSerializer):
-    rating = serializers.IntegerField(min_value=1, max_value=5)
-    user_id = serializers.IntegerField(validators=[required], write_only=True)
-    recipe_id = serializers.IntegerField(validators=[required], write_only=True)
+class UserInlineSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(read_only=True)
+    first_name = serializers.CharField(read_only=True)
+    last_name = serializers.CharField(read_only=True)
 
     class Meta:
-        model = Rating
+        model = User
         fields = [
-            'pk',
-            'rating',
-            'user_id',
-            'recipe_id',
+            "username",
+            "first_name",
+            "last_name",
+        ]
+
+
+class RatingCreateSerializer(serializers.ModelSerializer):
+    rating = serializers.IntegerField(min_value=1, max_value=5)
+    recipe_id = serializers.IntegerField(
+        validators=[required], write_only=True)
+    user = UserInlineSerializer(read_only=True)
+
+    class Meta:
+        model=Rating
+        fields=[
+            "pk",
+            "rating",
+            "user",
+            "recipe_id",
         ]
 
     def save(self):
         rating = Rating(rating=self.validated_data['rating'])
 
-        user_id = self.validated_data['user_id']
-        recipe_id = self.validated_data['recipe_id']
+        request = self.context.get('request')
+        user = request.user
 
-        user = User.objects.filter(pk=user_id).first()
+        recipe_id = self.validated_data['recipe_id']
         recipe = Recipe.objects.filter(pk=recipe_id).first()
-        if user is None or recipe is None:
+        if recipe is None:
             raise ValidationError(
-                {'message': 'Please make sure you pass valid user/recipe ids'})
-        rating.user = user
+                {'message': 'Please make sure you pass valid recipe id'})
+        if recipe.user == user:
+            raise ValidationError(
+                {'message': 'You are not able to rate your own recipes'}
+            )
+
         rating.recipe = recipe
+        rating.user = user
         rating.save()
         return rating
 
@@ -41,11 +61,13 @@ class RecipeSerializer(serializers.ModelSerializer):
     name = serializers.CharField(validators=[required])
     average_rating = serializers.DecimalField(
         max_digits=4, decimal_places=2, read_only=True)
+    user = UserInlineSerializer(read_only=True)
 
     class Meta:
         model = Recipe
         fields = [
             "pk",
+            "user",
             "name",
             "text",
             "average_rating"
