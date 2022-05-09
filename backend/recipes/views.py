@@ -11,6 +11,7 @@ from .serializers import RecipeSerializer, RatingCreateSerializer
 
 class RecipesOwnListAPIView(
         UserQuerySetMixin,
+        IsAuthenticatedMixin,
         generics.ListAPIView):
         queryset = Recipe.objects.all()
         serializer_class = RecipeSerializer

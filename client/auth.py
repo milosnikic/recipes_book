@@ -92,8 +92,7 @@ def call_api(endpoint, data=None):
             "Authorization": f"Bearer {token}"
         }
         get_response = requests.post(endpoint, json=data, headers=headers) if data is not None else requests.get(endpoint, headers=headers)
-        if get_response.status_code != 200:
+        if get_response.status_code not in [200, 201, 400]:
             token = refresh()
             get_response = requests.post(endpoint, json=data, headers=headers) if data is not None else requests.get(endpoint, headers=headers)
-        data = get_response.json()
-        return data
+        return {'data': get_response.json(), 'status_code': get_response.status_code}

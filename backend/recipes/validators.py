@@ -1,4 +1,5 @@
 from rest_framework.serializers import ValidationError
+from rest_framework.validators import UniqueValidator
 
 
 def required(value):
