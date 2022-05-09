@@ -1,16 +1,32 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
 
 from django.db.models import Avg
 from django.db.models.functions import Coalesce
 
+from recipes.mixins import IsAuthenticatedMixin
+
 from .models import Recipe
-from .serializers import RecipeSerializer
+from .serializers import RecipeSerializer, RatingCreateSerializer
 
 
-class RecipesListCreateAPIView(generics.ListCreateAPIView):
+class RecipesListCreateAPIView(
+        IsAuthenticatedMixin,
+        generics.ListCreateAPIView):
     serializer_class = RecipeSerializer
-    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Recipe.objects.all().annotate(_average_rating=Coalesce(Avg('ratings__rating'), 0.0))
+
+
+class RecipeRetrieveAPIView(
+        IsAuthenticatedMixin,
+        generics.RetrieveAPIView):
+    serializer_class = RecipeSerializer
+    
+    def get_queryset(self):
+        return Recipe.objects.all()
+
+class RatingCreateAPIView(
+        IsAuthenticatedMixin,
+        generics.CreateAPIView):
+    serializer_class = RatingCreateSerializer
