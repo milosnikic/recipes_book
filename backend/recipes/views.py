@@ -3,10 +3,17 @@ from rest_framework import generics
 from django.db.models import Avg
 from django.db.models.functions import Coalesce
 
-from recipes.mixins import IsAuthenticatedMixin
+from recipes.mixins import IsAuthenticatedMixin, UserQuerySetMixin
 
 from .models import Recipe
 from .serializers import RecipeSerializer, RatingCreateSerializer
+
+
+class RecipesOwnListAPIView(
+        UserQuerySetMixin,
+        generics.ListAPIView):
+        queryset = Recipe.objects.all()
+        serializer_class = RecipeSerializer
 
 
 class RecipesListCreateAPIView(
@@ -16,7 +23,7 @@ class RecipesListCreateAPIView(
 
     def get_queryset(self):
         return Recipe.objects.all().annotate(_average_rating=Coalesce(Avg('ratings__rating'), 0.0))
-    
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
@@ -26,8 +33,7 @@ class RecipeRetrieveAPIView(
         generics.RetrieveAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
-    
-    
+
 
 class RatingCreateAPIView(
         IsAuthenticatedMixin,
