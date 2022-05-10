@@ -7,7 +7,7 @@ Create recipes book using Django and Django REST Framework.
 ![model class diagram](images/class_diagram.jpg)
 
 ## Prerequisites
-You have [docker](https://docs.docker.com/get-docker/) installed on your machine.
+You must have [docker](https://docs.docker.com/get-docker/) installed on your machine.
 
 ## User requirements
 - [x] User should at least have email, first name, and last name
