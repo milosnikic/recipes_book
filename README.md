@@ -31,7 +31,7 @@ You must have [docker](https://docs.docker.com/get-docker/) installed on your ma
 
 ## Bonus
 - [x] Dockerized solution is a plus
-- [ ] Unit tests are a plus
+- [x] Unit tests are a plus
 - [x] Search recipes (name, text, ingredients) is a plus
 - [x] Filter recipes with minimum and maximum number of ingredients is a plus
 
