@@ -1,4 +1,7 @@
 from rest_framework.permissions import IsAuthenticated
+from django.db.models import Avg
+from django.db.models.functions import Coalesce
+from .models import Recipe
 
 
 class IsAuthenticatedMixin():
@@ -15,3 +18,12 @@ class UserQuerySetMixin():
 
         qs = super().get_queryset(*args, **kwargs)
         return qs.filter(**lookup_data)
+
+
+class RecipeSearchMixin():
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        q = self.request.GET.get('q')
+        if q is not None:
+            return qs.search(q)
+        return Recipe.objects.all().annotate(_average_rating=Coalesce(Avg('ratings__rating'), 0.0))
