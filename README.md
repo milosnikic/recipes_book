@@ -56,13 +56,16 @@ to verify that image has been successfully pulled.
 docker run -d -p 8000:8000 milosnikic/recipesbookapi
 ```
 After that, container should be successfully created.
+
 ![docker run](images/docker-run.png)
 
 You can verify that by running
 ```
 docker ps
 ```
+
 to see running containers
+
 ![docker ps](images/docker-ps.png)
 
 And now you can verify that application is started with visiting [localhost](http://localhost:8000)
