@@ -68,4 +68,4 @@ to see running containers
 
 ![docker ps](images/docker-ps.png)
 
-And now you can verify that application is started with visiting [localhost](http://localhost:8000)
+And now you can verify that application is started with visiting [localhost](http://localhost:8000/admin) and login with credentials (test, Test)
