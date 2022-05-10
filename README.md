@@ -57,6 +57,7 @@ docker run -d -p 8000:8000 milosnikic/recipesbookapi
 ```
 After that, container should be successfully created.
 ![docker run](images/docker-run.png)
+
 You can verify that by running
 ```
 docker ps
