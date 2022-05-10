@@ -28,8 +28,6 @@ You must have [docker](https://docs.docker.com/get-docker/) installed on your ma
 - [x] List all recipes
 - [x] List own recipes
 - [x] Get most used ingridients (top5)
-- [x] Neptune
-- [x] Comet Haley
 
 ## Bonus
 - [x] Dockerized solution is a plus
