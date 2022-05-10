@@ -1,16 +1,52 @@
 [
     {
-        "pk": 10,
+        "pk": 35,
         "user": {
-            "username": "pera.peric",
-            "first_name": "pera",
-            "last_name": "peric"
+            "username": "jovan.jovanovic",
+            "first_name": "Jovan",
+            "last_name": "Jovanovic"
         },
-        "name": "Latest asdadsa",
+        "name": "Test poslednjeg",
         "text": "this is new recipe",
         "ingridients": [
-            "Flour",
-            "Milk"
+            "Milk",
+            "Water",
+            "asdadsa",
+            "Ovo je novi ingridient"
+        ],
+        "average_rating": "0.00"
+    },
+    {
+        "pk": 35,
+        "user": {
+            "username": "jovan.jovanovic",
+            "first_name": "Jovan",
+            "last_name": "Jovanovic"
+        },
+        "name": "Test poslednjeg",
+        "text": "this is new recipe",
+        "ingridients": [
+            "Milk",
+            "Water",
+            "asdadsa",
+            "Ovo je novi ingridient"
+        ],
+        "average_rating": "0.00"
+    },
+    {
+        "pk": 35,
+        "user": {
+            "username": "jovan.jovanovic",
+            "first_name": "Jovan",
+            "last_name": "Jovanovic"
+        },
+        "name": "Test poslednjeg",
+        "text": "this is new recipe",
+        "ingridients": [
+            "Milk",
+            "Water",
+            "asdadsa",
+            "Ovo je novi ingridient"
         ],
         "average_rating": "0.00"
     },

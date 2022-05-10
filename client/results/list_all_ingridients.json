@@ -2,17 +2,17 @@
     {
         "id": 1,
         "name": "Flour",
-        "number_of_recipes": 2
+        "number_of_recipes": 1
     },
     {
         "id": 2,
         "name": "Milk",
-        "number_of_recipes": 8
+        "number_of_recipes": 3
     },
     {
         "id": 3,
         "name": "Water",
-        "number_of_recipes": 3
+        "number_of_recipes": 2
     },
     {
         "id": 4,
@@ -52,16 +52,21 @@
     {
         "id": 11,
         "name": "asdadsa",
-        "number_of_recipes": 7
+        "number_of_recipes": 2
     },
     {
         "id": 12,
         "name": "Ovo je novi ingridient",
-        "number_of_recipes": 4
+        "number_of_recipes": 2
     },
     {
         "id": 13,
         "name": "Lemonade",
         "number_of_recipes": 0
+    },
+    {
+        "id": 14,
+        "name": "Pet",
+        "number_of_recipes": 1
     }
 ]

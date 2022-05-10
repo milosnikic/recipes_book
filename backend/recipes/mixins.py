@@ -24,6 +24,8 @@ class RecipeSearchMixin():
     def get_queryset(self, *args, **kwargs):
         qs = super().get_queryset(*args, **kwargs)
         q = self.request.GET.get('q')
-        if q is not None:
-            return qs.search(q)
+        min = self.request.GET.get('min')
+        max = self.request.GET.get('max')
+        if q is not None or min is not None or max is not None:
+            return qs.search(q, min, max)
         return Recipe.objects.all().annotate(_average_rating=Coalesce(Avg('ratings__rating'), 0.0))

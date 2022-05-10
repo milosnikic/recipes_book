@@ -245,6 +245,24 @@
         "average_rating": "0.00"
     },
     {
+        "pk": 36,
+        "user": {
+            "username": "jovan.jovanovic",
+            "first_name": "Jovan",
+            "last_name": "Jovanovic"
+        },
+        "name": "Asdasd",
+        "text": "this is new recipe",
+        "ingridients": [
+            "Milk",
+            "Water",
+            "asdadsa",
+            "Ovo je novi ingridient",
+            "Pet"
+        ],
+        "average_rating": "0.00"
+    },
+    {
         "pk": 7,
         "user": {
             "username": "pera.peric",

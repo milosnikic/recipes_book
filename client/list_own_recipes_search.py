@@ -1,7 +1,7 @@
 from auth import call_api, save_result
 
 
-endpoint = "api/recipes/own/?q=Milk"
+endpoint = "api/recipes/own/?q=Pet&min=7"
 response = call_api(endpoint)
 print(response['data'])
 print(response['status_code'])
