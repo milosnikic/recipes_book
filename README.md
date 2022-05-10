@@ -67,3 +67,20 @@ to see running containers
 ![docker ps](images/docker-ps.png)
 
 And now you can verify that application is started with visiting [localhost](http://localhost:8000/admin) and login with credentials (test, Test)
+
+## Testing
+After successful installation of project, you should access container bash with following command
+```
+docker exec -it de07 /bin/bash
+```
+Notice that after '-it' it is first four digits of container id.
+
+Now inside bash, you can run command for running all tests
+```
+python manage.py test
+```
+There you can see 27 tests ran.
+
+## Python client
+In folder client, you can see clients for running all requirements. After registering, you can try to call any endpoint and you will be prompted to enter credentials. After that, while access token is valid, you will be able to call endpoints. When the token has expired, you will get response from any of endpoints. You only need to call again same endpoint just to reload access token from credentials.json file.
+
