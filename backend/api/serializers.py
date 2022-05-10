@@ -1,11 +1,12 @@
 from rest_framework import serializers
 
+
 from .models import User
 from . import validators
 
 class UserSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
-    email = serializers.EmailField(validators=[validators.unique_validator])
+    email = serializers.EmailField(validators=[validators.unique_validator, validators.email_validator])
     username = serializers.CharField(validators=[validators.unique_validator])
     class Meta:
         model = User
