@@ -1,7 +1,8 @@
-from auth import call_api
-
+from auth import call_api, save_result
 
 endpoint = "api/ingridients/"
-response = call_api(endpoint, data={"name": "Lemon"})
+response = call_api(endpoint, data={"name": "Lemonade"})
 print(response['data'])
 print(response['status_code'])
+filename = f"{__file__.split('/')[-1].split('.')[0]}.json"
+save_result(response['data'], filename)

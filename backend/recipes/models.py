@@ -20,7 +20,7 @@ class Recipe(models.Model):
         rating = self.ratings.aggregate(Avg('rating'))['rating__avg']
         if rating is None:
             rating = 0
-        return  rating
+        return rating
             
 
 class Rating(models.Model):

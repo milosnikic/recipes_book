@@ -1,7 +1,10 @@
 from rest_framework import serializers
 from rest_framework.serializers import ValidationError
 
+
 from .models import Recipe, Rating
+from ingridients.models import Ingridient
+from ingridients.serializers import IngridientSlugRelatedField
 from api.models import User
 from .validators import required
 
@@ -62,6 +65,8 @@ class RecipeSerializer(serializers.ModelSerializer):
     average_rating = serializers.DecimalField(
         max_digits=4, decimal_places=2, read_only=True)
     user = UserInlineSerializer(read_only=True)
+    ingridients = IngridientSlugRelatedField(many=True, queryset=Ingridient.objects.all(),slug_field="name")
+
 
     class Meta:
         model = Recipe
@@ -70,5 +75,6 @@ class RecipeSerializer(serializers.ModelSerializer):
             "user",
             "name",
             "text",
+            "ingridients",
             "average_rating"
         ]

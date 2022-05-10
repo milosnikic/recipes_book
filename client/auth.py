@@ -96,3 +96,9 @@ def call_api(endpoint, data=None):
             token = refresh()
             get_response = requests.post(endpoint, json=data, headers=headers) if data is not None else requests.get(endpoint, headers=headers)
         return {'data': get_response.json(), 'status_code': get_response.status_code}
+
+
+def save_result(result, filename):
+    filename = os.path.join(f"{__file__.split('auth', 1)[0]}/results", filename)
+    with open(filename, 'w') as f:
+        f.write(json.dumps(result,indent=4))

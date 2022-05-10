@@ -13,8 +13,8 @@ class RecipesOwnListAPIView(
         UserQuerySetMixin,
         IsAuthenticatedMixin,
         generics.ListAPIView):
-        queryset = Recipe.objects.all()
-        serializer_class = RecipeSerializer
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
 
 
 class RecipesListCreateAPIView(

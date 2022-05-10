@@ -1,8 +1,8 @@
 from auth import call_api, save_result
 
 
-endpoint = "api/recipes/rate/"
-response = call_api(endpoint, data={'rating': 5,'recipe_id': 35,})
+endpoint = "api/ingridients/"
+response = call_api(endpoint)
 print(response['data'])
 print(response['status_code'])
 filename = f"{__file__.split('/')[-1].split('.')[0]}.json"

@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "name": "Flour",
+        "number_of_recipes": 2
+    },
+    {
+        "id": 2,
+        "name": "Milk",
+        "number_of_recipes": 8
+    },
+    {
+        "id": 3,
+        "name": "Water",
+        "number_of_recipes": 3
+    },
+    {
+        "id": 4,
+        "name": "Test",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 5,
+        "name": "Testa",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 6,
+        "name": "Testee",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 7,
+        "name": "Testeeaa",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 8,
+        "name": "Testeeaaaasdad",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 9,
+        "name": "Proba",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 10,
+        "name": "Lemon",
+        "number_of_recipes": 0
+    },
+    {
+        "id": 11,
+        "name": "asdadsa",
+        "number_of_recipes": 7
+    },
+    {
+        "id": 12,
+        "name": "Ovo je novi ingridient",
+        "number_of_recipes": 4
+    },
+    {
+        "id": 13,
+        "name": "Lemonade",
+        "number_of_recipes": 0
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 2,
+        "name": "Milk",
+        "number_of_recipes": 6
+    },
+    {
+        "id": 11,
+        "name": "asdadsa",
+        "number_of_recipes": 5
+    },
+    {
+        "id": 1,
+        "name": "Flour",
+        "number_of_recipes": 2
+    },
+    {
+        "id": 12,
+        "name": "Ovo je novi ingridient",
+        "number_of_recipes": 2
+    },
+    {
+        "id": 3,
+        "name": "Water",
+        "number_of_recipes": 1
+    }
+]
