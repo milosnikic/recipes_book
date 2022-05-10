@@ -4,6 +4,9 @@ from rest_framework import serializers
 from .models import User
 from . import validators
 
+from .clearbit import get_additional_user_data
+
+
 class UserSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
     email = serializers.EmailField(validators=[validators.unique_validator, validators.email_validator])
@@ -36,6 +39,12 @@ class UserSerializer(serializers.ModelSerializer):
         if password != confirm_password:
             raise serializers.ValidationError({'password': 'Passwords have to match!'})
         
+        (location, github, linkedin) = get_additional_user_data(self.validated_data['email'])
+
+        user.location = location
+        user.github = github
+        user.linkedin = linkedin
+
         user.set_password(password)
         user.save()
         return user
