@@ -13,7 +13,5 @@ def get_additional_user_data(email):
     if get_response.status_code == 200:
         data = get_response.json()
         if data['person'] is not None:
-            print(data['person']['location'], data['person']['github']['handle'], data['person']['linkedin']['handle'])
             return data['person']['location'], data['person']['github']['handle'], data['person']['linkedin']['handle']
-    print((None, None, None))
     return (None, None, None)
