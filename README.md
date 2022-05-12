@@ -59,7 +59,7 @@ After that, container should be successfully created.
 
 You can verify that by running
 ```
-docker ps
+docker images
 ```
 
 to see running containers
