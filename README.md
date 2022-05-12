@@ -44,7 +44,7 @@ docker pull milosnikic/recipesbookapi
 After that run
 
 ```
-docker ps
+docker images
 ```
 to verify that image has been successfully pulled.
 
@@ -59,7 +59,7 @@ After that, container should be successfully created.
 
 You can verify that by running
 ```
-docker images
+docker ps
 ```
 
 to see running containers
