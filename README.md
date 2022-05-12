@@ -49,7 +49,7 @@ docker images
 to verify that image has been successfully pulled.
 
 ![docker image](images/docker-images.png)
-
+Next, you should run your container:
 ```
 docker run -d -p 8000:8000 milosnikic/recipesbookapi
 ```
